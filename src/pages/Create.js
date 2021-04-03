@@ -1,4 +1,5 @@
 import { Button, Container, Typography } from '@material-ui/core';
+import { KeyboardArrowRight } from '@material-ui/icons';
 import React from 'react';
 
 const Create = () => {
@@ -17,6 +18,7 @@ const Create = () => {
         variant="contained"
         color="secondary"
         onClick={() => console.log('Clicked')}
+        startIcon={<KeyboardArrowRight />}
       >
         Submit
       </Button>
