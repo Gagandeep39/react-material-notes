@@ -1,2 +1,0 @@
-(this["webpackJsonpreact-material-notes"]=this["webpackJsonpreact-material-notes"]||[]).push([[0],{11:function(e,t,n){"use strict";n.r(t);var c=n(1),r=n.n(c),a=n(3),s=n.n(a),i=(n(8),n(9),n(0));var o=function(){return Object(i.jsx)("div",{className:"App",children:"Hello :D"})};s.a.render(Object(i.jsx)(r.a.StrictMode,{children:Object(i.jsx)(o,{})}),document.getElementById("root"))},8:function(e,t,n){},9:function(e,t,n){}},[[11,1,2]]]);
-//# sourceMappingURL=main.20cd9cf8.chunk.js.map
