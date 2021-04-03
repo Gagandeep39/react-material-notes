@@ -1,9 +1,9 @@
-import { Typography } from '@material-ui/core';
+import { Button, Container, Typography } from '@material-ui/core';
 import React from 'react';
 
 const Create = () => {
   return (
-    <div>
+    <Container>
       <Typography
         variant="h6"
         color="textSecondary"
@@ -12,7 +12,15 @@ const Create = () => {
       >
         Create a new Note
       </Typography>
-    </div>
+      <Button
+        type="submit"
+        variant="contained"
+        color="secondary"
+        onClick={() => console.log('Clicked')}
+      >
+        Submit
+      </Button>
+    </Container>
   );
 };
 
