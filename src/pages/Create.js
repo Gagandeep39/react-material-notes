@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Create = () => {
+const Create = ({ handleCreate }) => {
   const classes = useStyles();
   const [title, setTitle] = useState('');
   const [details, setDetails] = useState('');
@@ -55,7 +55,8 @@ const Create = () => {
 
     // Display with ata is valid
     if (title && details) {
-      console.log(title, details, category);
+      // handleCreate(title, details, category);
+      // history.push('/')
       fetch('http://localhost:3001/notes', {
         method: 'POST',
         headers: { 'Content-type': 'application/json' },

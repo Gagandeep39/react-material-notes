@@ -26,16 +26,22 @@ const theme = createMuiTheme({
   },
 });
 
+let inMemoryNotes = [];
+
 function App() {
+  const handleCreate = (title, details, category) => {
+    inMemoryNotes.push({ title, details, category, id: inMemoryNotes.length });
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
           <Route exact path="/">
-            <Notes />
+            <Notes inMemoryNotes={inMemoryNotes} />
           </Route>
           <Route path="/create">
-            <Create />
+            <Create handleCreate={handleCreate} />
           </Route>
         </Switch>
       </Router>

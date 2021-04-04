@@ -2,7 +2,7 @@ import { Container, Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import NoteCard from '../components/NoteCard';
 
-const Notes = () => {
+const Notes = ({ inMemoryNotes }) => {
   const [notes, setNotes] = useState([]);
   useEffect(() => {
     fetch('http://localhost:3001/notes')
