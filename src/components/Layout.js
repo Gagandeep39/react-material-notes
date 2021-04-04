@@ -12,6 +12,7 @@ import {
 import { AddCircleOutlined, SubjectOutlined } from '@material-ui/icons';
 import React from 'react';
 import { useHistory, useLocation } from 'react-router';
+import { format } from 'date-fns';
 
 const drawerWidth = 240;
 
@@ -38,8 +39,16 @@ const useStyles = makeStyles((theme) => {
     title: {
       padding: theme.spacing(2),
     },
+    // Ensures appbar at the right side of drawer
     appbar: {
       width: `calc(100% - ${drawerWidth}px)`,
+    },
+    // Ensures notes are below appbar
+    // Using mixin we apply app the toolbar css to toolbar class
+    toolbar: theme.mixins.toolbar,
+    // Uses all the available width
+    date: {
+      flexGrow: '1',
     },
   };
 });
@@ -64,9 +73,13 @@ const Layout = ({ children }) => {
   return (
     <div className={classes.root}>
       {/* TODO App Drawer */}
-      <AppBar className={classes.appbar}>
+      <AppBar className={classes.appbar} elevation={1}>
         <Toolbar>
-          <Typography>Welcome, Lets starting by adding notes.</Typography>
+          <Typography className={classes.date}>
+            Today is {format(new Date(), 'do MMMM Y')}
+          </Typography>
+
+          <Typography>Gagandeep Singh</Typography>
         </Toolbar>
       </AppBar>
 
@@ -98,7 +111,10 @@ const Layout = ({ children }) => {
         </List>
       </Drawer>
 
-      <div className={classes.page}>{children}</div>
+      <div className={classes.page}>
+        <div className={classes.toolbar}></div>
+        {children}
+      </div>
     </div>
   );
 };
