@@ -12,23 +12,31 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router';
 
 const drawerWidth = 240;
-const useStyles = makeStyles({
-  page: {
-    backgroundColor: '#f9f9f9',
-    width: '100%',
-  },
-  drawer: {
-    width: drawerWidth,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  root: {
-    display: 'flex',
-  },
-  active: {
-    background: '#f4f4f4',
-  },
+
+// Allows overriding defaut valaues
+const useStyles = makeStyles((theme) => {
+  return {
+    page: {
+      backgroundColor: '#f9f9f9',
+      width: '100%',
+      padding: theme.spacing(3), // Mustiplies default padding by 3
+    },
+    drawer: {
+      width: drawerWidth,
+    },
+    drawerPaper: {
+      width: drawerWidth,
+    },
+    root: {
+      display: 'flex',
+    },
+    active: {
+      background: '#f4f4f4',
+    },
+    title: {
+      padding: theme.spacing(2),
+    },
+  };
 });
 
 const Layout = ({ children }) => {
@@ -60,7 +68,9 @@ const Layout = ({ children }) => {
         classes={{ paper: classes.drawerPaper }} // Override drwer pper width(Width of drwer)
       >
         <div>
-          <Typography variant="h5">Todo App</Typography>
+          <Typography variant="h5" className={classes.title}>
+            Todo App
+          </Typography>
         </div>
 
         <List>
