@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Avatar,
   Drawer,
   List,
   ListItem,
@@ -50,6 +51,10 @@ const useStyles = makeStyles((theme) => {
     date: {
       flexGrow: '1',
     },
+    // Add left marign
+    avatar: {
+      marginLeft: theme.spacing(2),
+    },
   };
 });
 
@@ -80,6 +85,7 @@ const Layout = ({ children }) => {
           </Typography>
 
           <Typography>Gagandeep Singh</Typography>
+          <Avatar className={classes.avatar}>GS</Avatar>
         </Toolbar>
       </AppBar>
 
