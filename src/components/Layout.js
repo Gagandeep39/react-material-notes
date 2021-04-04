@@ -1,5 +1,15 @@
-import { Drawer, makeStyles, Typography } from '@material-ui/core';
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  makeStyles,
+  Typography,
+} from '@material-ui/core';
+import { AddCircleOutlined, SubjectOutlined } from '@material-ui/icons';
 import React from 'react';
+import { useHistory } from 'react-router';
 
 const drawerWidth = 240;
 const useStyles = makeStyles({
@@ -20,6 +30,19 @@ const useStyles = makeStyles({
 
 const Layout = ({ children }) => {
   const classes = useStyles();
+  const history = useHistory();
+  const menuItems = [
+    {
+      text: 'My Notes',
+      icon: <SubjectOutlined color="secondary" />,
+      route: '/',
+    },
+    {
+      text: 'Create Notes',
+      icon: <AddCircleOutlined color="secondary" />,
+      route: '/create',
+    },
+  ];
 
   return (
     <div className={classes.root}>
@@ -35,6 +58,19 @@ const Layout = ({ children }) => {
         <div>
           <Typography variant="h5">Todo App</Typography>
         </div>
+
+        <List>
+          {menuItems.map((item) => (
+            <ListItem
+              button
+              key={item.text}
+              onClick={() => history.push(item.route)}
+            >
+              <ListItemIcon> {item.icon} </ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItem>
+          ))}
+        </List>
       </Drawer>
 
       <div className={classes.page}>{children}</div>
