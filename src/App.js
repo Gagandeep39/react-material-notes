@@ -5,6 +5,8 @@ import Create from './pages/Create';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { purple } from '@material-ui/core/colors';
 import Layout from './components/Layout';
+import { useEffect, useState } from 'react';
+import myNotes from './assets/db.json';
 
 // Refer https://material-ui.com/customization/default-theme/
 // for prperties that can be overriden
@@ -27,12 +29,32 @@ const theme = createMuiTheme({
   },
 });
 
-let inMemoryNotes = [];
-
 function App() {
+  const [inMemoryNotes, setInMemoryNotes] = useState([]);
+
   const handleCreate = (title, details, category) => {
-    inMemoryNotes.push({ title, details, category, id: inMemoryNotes.length });
+    const newState = [
+      ...inMemoryNotes,
+      {
+        title,
+        details,
+        category,
+        id:
+          inMemoryNotes[inMemoryNotes.length - 1].id +
+          Math.floor(Math.random() * 999),
+      },
+    ];
+    setInMemoryNotes(newState);
   };
+
+  const deleteFromMemory = (id) => {
+    const temp = inMemoryNotes.filter((note) => note.id !== id);
+    setInMemoryNotes(temp);
+  };
+
+  useEffect(() => {
+    setInMemoryNotes(myNotes.notes);
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -40,7 +62,10 @@ function App() {
         <Layout>
           <Switch>
             <Route exact path="/">
-              <Notes inMemoryNotes={inMemoryNotes} />
+              <Notes
+                inMemoryNotes={inMemoryNotes}
+                deleteFromMemory={deleteFromMemory}
+              />
             </Route>
             <Route path="/create">
               <Create handleCreate={handleCreate} />

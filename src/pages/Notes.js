@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Masonry from 'react-masonry-css';
 import NoteCard from '../components/NoteCard';
 
-const Notes = ({ inMemoryNotes }) => {
+const Notes = ({ inMemoryNotes, deleteFromMemory }) => {
   const [notes, setNotes] = useState([]);
   const breakpoints = {
     default: 3,
@@ -11,18 +11,11 @@ const Notes = ({ inMemoryNotes }) => {
     700: 1,
   };
   useEffect(() => {
-    fetch('http://localhost:3001/notes')
-      .then((res) => res.json())
-      .then((data) => setNotes(data));
-  }, []);
+    setNotes(inMemoryNotes.reverse());
+  }, [inMemoryNotes]);
 
-  const handleDelete = async (id) => {
-    await fetch('http://localhost:3001/notes' + id, {
-      method: 'DELETE',
-    });
-
-    const newNotes = notes.filter((note) => note.id !== id);
-    setNotes(newNotes);
+  const handleDelete = (id) => {
+    deleteFromMemory(id);
   };
 
   return (

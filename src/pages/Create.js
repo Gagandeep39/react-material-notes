@@ -55,13 +55,8 @@ const Create = ({ handleCreate }) => {
 
     // Display with ata is valid
     if (title && details) {
-      // handleCreate(title, details, category);
-      // history.push('/')
-      fetch('http://localhost:3001/notes', {
-        method: 'POST',
-        headers: { 'Content-type': 'application/json' },
-        body: JSON.stringify({ title, details, category }),
-      }).then(() => history.push('/'));
+      handleCreate(title, details, category);
+      history.push('/')
     }
   };
 
