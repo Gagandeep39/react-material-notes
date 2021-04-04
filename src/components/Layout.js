@@ -1,10 +1,12 @@
 import {
+  AppBar,
   Drawer,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
   makeStyles,
+  Toolbar,
   Typography,
 } from '@material-ui/core';
 import { AddCircleOutlined, SubjectOutlined } from '@material-ui/icons';
@@ -36,6 +38,9 @@ const useStyles = makeStyles((theme) => {
     title: {
       padding: theme.spacing(2),
     },
+    appbar: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
   };
 });
 
@@ -59,6 +64,11 @@ const Layout = ({ children }) => {
   return (
     <div className={classes.root}>
       {/* TODO App Drawer */}
+      <AppBar className={classes.appbar}>
+        <Toolbar>
+          <Typography>Welcome, Lets starting by adding notes.</Typography>
+        </Toolbar>
+      </AppBar>
 
       {/* TODO Side drawer */}
       <Drawer
