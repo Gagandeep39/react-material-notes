@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/react-material-notes/static/css/main.80369194.chunk.css",
-    "main.js": "/react-material-notes/static/js/main.87a4eb01.chunk.js",
-    "main.js.map": "/react-material-notes/static/js/main.87a4eb01.chunk.js.map",
+    "main.js": "/react-material-notes/static/js/main.a882cdf7.chunk.js",
+    "main.js.map": "/react-material-notes/static/js/main.a882cdf7.chunk.js.map",
     "runtime-main.js": "/react-material-notes/static/js/runtime-main.4d32fe31.js",
     "runtime-main.js.map": "/react-material-notes/static/js/runtime-main.4d32fe31.js.map",
-    "static/js/2.18b6d2ad.chunk.js": "/react-material-notes/static/js/2.18b6d2ad.chunk.js",
-    "static/js/2.18b6d2ad.chunk.js.map": "/react-material-notes/static/js/2.18b6d2ad.chunk.js.map",
+    "static/js/2.e469ca44.chunk.js": "/react-material-notes/static/js/2.e469ca44.chunk.js",
+    "static/js/2.e469ca44.chunk.js.map": "/react-material-notes/static/js/2.e469ca44.chunk.js.map",
     "index.html": "/react-material-notes/index.html",
     "static/css/main.80369194.chunk.css.map": "/react-material-notes/static/css/main.80369194.chunk.css.map",
-    "static/js/2.18b6d2ad.chunk.js.LICENSE.txt": "/react-material-notes/static/js/2.18b6d2ad.chunk.js.LICENSE.txt"
+    "static/js/2.e469ca44.chunk.js.LICENSE.txt": "/react-material-notes/static/js/2.e469ca44.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4d32fe31.js",
-    "static/js/2.18b6d2ad.chunk.js",
+    "static/js/2.e469ca44.chunk.js",
     "static/css/main.80369194.chunk.css",
-    "static/js/main.87a4eb01.chunk.js"
+    "static/js/main.a882cdf7.chunk.js"
   ]
 }
