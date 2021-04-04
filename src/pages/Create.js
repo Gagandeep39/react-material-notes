@@ -1,7 +1,12 @@
 import {
   Button,
   Container,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
   makeStyles,
+  Radio,
+  RadioGroup,
   TextField,
   Typography,
 } from '@material-ui/core';
@@ -33,6 +38,7 @@ const Create = () => {
   const [details, setDetails] = useState('');
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
+  const [category, setCategory] = useState('todos');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +52,7 @@ const Create = () => {
     if (!details) setDetailsError(true);
 
     // Display with ata is valid
-    if (title && details) console.log(title, details);
+    if (title && details) console.log(title, details, category);
   };
 
   return (
@@ -83,6 +89,38 @@ const Create = () => {
           className={classes.field}
           error={detailsError}
         />
+
+        <FormControl className={classes.field}>
+          <FormLabel>Notes Category</FormLabel>
+          <RadioGroup
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <FormControlLabel
+              value="money"
+              control={<Radio />}
+              label="Money"
+            ></FormControlLabel>
+
+            <FormControlLabel
+              value="todos"
+              control={<Radio />}
+              label="Todo"
+            ></FormControlLabel>
+
+            <FormControlLabel
+              value="reminders"
+              control={<Radio />}
+              label="Reminder"
+            ></FormControlLabel>
+
+            <FormControlLabel
+              value="work"
+              control={<Radio />}
+              label="Work"
+            ></FormControlLabel>
+          </RadioGroup>
+        </FormControl>
         <Button
           type="submit"
           variant="contained"
