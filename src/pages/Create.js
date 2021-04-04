@@ -31,7 +31,7 @@ const Create = () => {
       <Button
         type="submit"
         variant="contained"
-        color="primary"
+        color="secondary"
         onClick={() => console.log('Clicked')}
         startIcon={<KeyboardArrowRight />}
       >
