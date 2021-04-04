@@ -21,7 +21,6 @@ const Create = () => {
   return (
     <Container>
       <Typography
-        className={classes.title}
         variant="h6"
         color="textSecondary"
         component="h2"
@@ -30,10 +29,9 @@ const Create = () => {
         Create a new Note
       </Typography>
       <Button
-        className={classes.btn}
         type="submit"
         variant="contained"
-        color="secondary"
+        color="primary"
         onClick={() => console.log('Clicked')}
         startIcon={<KeyboardArrowRight />}
       >
