@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import { KeyboardArrowRight } from '@material-ui/icons';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles({
   btn: {
@@ -39,6 +40,7 @@ const Create = () => {
   const [titleError, setTitleError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
   const [category, setCategory] = useState('todos');
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +54,14 @@ const Create = () => {
     if (!details) setDetailsError(true);
 
     // Display with ata is valid
-    if (title && details) console.log(title, details, category);
+    if (title && details) {
+      console.log(title, details, category);
+      fetch('http://localhost:3001/notes', {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({ title, details, category }),
+      }).then(() => history.push('/'));
+    }
   };
 
   return (
